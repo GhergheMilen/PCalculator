@@ -35,7 +35,8 @@ buttons.forEach((button) => {
     });
 });
 
-function handleNumber(number) {
+// Function to handle number input
+const handleNumber = (number) => {
     // If the user tries to enter a decimal point and one already exists in the current operand, do nothing
     if (number === "." && currentOperand.includes(".")) return;
 
@@ -47,10 +48,10 @@ function handleNumber(number) {
 
     // Add the number to the current operand
     currentOperand += number;
-}
+};
 
 // Function to handle operator input
-function handleOperator(operator) {
+const handleOperator = (operator) => {
     // If an operator already exists, perform the calculation using the existing operator
     if (currentOperator !== null) {
         calculate();
@@ -59,17 +60,17 @@ function handleOperator(operator) {
     currentOperator = operator;
     previousOperand = currentOperand;
     currentOperand = "";
-}
+};
 
 // Function to clear the input
-function clear() {
+const clear = () => {
     currentOperand = "";
     previousOperand = "";
     currentOperator = null;
-}
+};
 
 // Function to perform the calculation
-function calculate() {
+const calculate = () => {
     let calculation;
     // Convert the operands to numbers and perform the calculation based on the operator
     const prev = parseFloat(previousOperand);
@@ -95,12 +96,10 @@ function calculate() {
     currentOperand = calculation.toString();
     currentOperator = null;
     previousOperand = "";
-}
+};
 
 // Function to update the display
-function updateDisplay() {
+const updateDisplay = () => {
     // Update the result element with the current and previous operands and operator
-    result.innerText = `${previousOperand} ${
-        currentOperator ? currentOperator : ""
-    } ${currentOperand}`;
-}
+    result.innerText = `${previousOperand} ${currentOperator ? currentOperator : ""} ${currentOperand}`;
+};
